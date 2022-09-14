@@ -1,4 +1,4 @@
-ui4 Main Page
-=============
+ui4.js - natural layouts
+========================
 
 Initial publish test.
