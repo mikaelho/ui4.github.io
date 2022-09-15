@@ -2,16 +2,32 @@ Natural layouts for web UIs
 ===========================
 
 CSS does a fair job with styling things, but layouts with it are always a bit hit and miss.
-ui4.js provides layouting straight in the HTML, sharing some of the philosophy of HTMX and
+ui4.html provides layouting straight in the HTML, sharing some of the philosophy of HTMX and
 Tailwind CSS.
 
-# Quick example
+ui4 treats the HTML document as a fixed-screen canvas, and not an eternally scrolling document.
 
-```javascript
-<button id="demo" ui4="dock=center; width=100">Demo</button>
+For convenience and less code, a number of shortcuts like `dock=center` are available.
+
+# Primitives
+
+You can place elements absolutely but flexibly with a set of layout primitives: `left`/`x`, `top`/`y`, `right`, `bottom`, `centerX`, `centerY`, `width`, `height`.
+
+You use them in HTML elements using the `ui4` attribute:
+
+```html
+<div id="root">
+  <input id="searchText" ui4="left=root.left; top=root.top; right=searchButton.left">
+  <button id="searchButton" ui4="top=root.top; right=root.right;">Search</button>
+</div>
 ```
 
-Initial publish test.
+If you prefer, you can split the `ui4` attribute into several attributes, which raises namespace concerns but can be more readable with typical code highlighting:
+
+```html
+<input id="searchText" left="root.left" top="root.top" right="searchButton.left">
+```
+
 
 ```html
 <div id="root" class="ui4Root">
