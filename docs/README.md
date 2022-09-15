@@ -1,5 +1,15 @@
-ui4.js - natural layouts
-========================
+Natural layouts for web UIs
+===========================
+
+CSS does a fair job with styling things, but layouts with it are always a bit hit and miss.
+ui4.js provides layouting straight in the HTML, sharing some of the philosophy of HTMX and
+Tailwind CSS.
+
+# Quick example
+
+```javascript
+<button id="demo" ui4="dock=center; width=100">Demo</button>
+```
 
 Initial publish test.
 
