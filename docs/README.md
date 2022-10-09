@@ -10,7 +10,7 @@ ui4 provides an alternative for placing UI elements on the screen. Let's look at
   <tr>
     <td>
       <sub>EXAMPLE 1</sub>
-      <pre>&lt;div id="square" top="root.top" left="root.left">&lt;/div></pre>
+      <pre language="html">&lt;div id="square" top="root.top" left="root.left">&lt;/div></pre>
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0001.html"></iframe><br/>
@@ -32,7 +32,7 @@ and `centery`.
   <tr>
     <td>
       <sub>EXAMPLE 2</sub>
-      <pre>&lt;div id="b" top="root.top" left="root.left">B&lt;/div>
+      <pre language="html">&lt;div id="b" top="root.top" left="root.left">B&lt;/div>
 &lt;div id="a" top="b.bottom" left="b.left">A&lt;/div></pre>
     </td>
     <td>
@@ -52,7 +52,7 @@ of aligning with the edge.
   <tr>
     <td>
       <sub>EXAMPLE 3</sub>
-      <pre>&lt;div id="centered" dock="center">&lt;/div></pre>
+      <pre language="html">&lt;div id="centered" dock="center">&lt;/div></pre>
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0003.html"></iframe><br/>
@@ -71,7 +71,7 @@ convenient and easier to read options.
   <tr>
     <td>
       <sub>EXAMPLE 4</sub>
-      <pre>&lt;div id="topBanner" dock="top" height="30">&lt;/div></pre>
+      <pre language="html">&lt;div id="topBanner" dock="top" height="30">&lt;/div></pre>
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0004.html"></iframe><br/>
@@ -96,7 +96,7 @@ All the options for docking to the parent are:
   <tr>
     <td>
       <sub>EXAMPLE 5</sub>
-      <pre>&lt;div id="b" dock="center" width="50" height="30">B&lt;/div>
+      <pre language="html">&lt;div id="b" dock="center" width="50" height="30">B&lt;/div>
 &lt;div id="a" dock="b.above" height="30">A&lt;/div></pre>
     </td>
     <td>
