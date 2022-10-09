@@ -5,6 +5,7 @@ ui4 provides an alternative for placing UI elements on the screen. Let's look at
 
 #### "Connect this to the corner"
 
+<table><th><td>This is a test</td></th><tr><td>This is a test></td></tr></table>
 ```html
 <div id="square" top="root.top" left="root.left"></div>
 ```
@@ -20,6 +21,7 @@ and `centery`.
 
 #### "Connect A to B"
 
+<table><th><td>This is a test</td></th><tr><td>This is a test></td></tr></table>
 ```html
 <div id="b" top="root.top" left="root.left">B</div>
 <div id="a" top="square.bottom" left="square.left">A</div>
@@ -32,6 +34,7 @@ Same `top` and `left` work with peer elements in an intuitive way.
 
 #### "Just put it in the center"
 
+<table><th><td>This is a test</td></th><tr><td>This is a test></td></tr></table>
 ```html
 <div id="centered" dock="center"></div>
 ```

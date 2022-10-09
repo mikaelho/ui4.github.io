@@ -41,8 +41,10 @@ try:
 
             # Save example file
             example_file_name = f"example{example_number:04}.html"
-
             Path(f"docs/examples/{example_file_name}").write_text(example)
+
+            # Add example table
+            lines_out.append(f"<table><th><td>This is a test</td></th><tr><td>This is a test></td></tr></table>")
 
             # Add example snippet
             example_lines = "\n".join(example_content[slice(start_line, end_line)])
