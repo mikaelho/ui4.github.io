@@ -73,8 +73,8 @@ beside another one and set the shared dimension (width in the example above) to 
 
 ```html example solid 1
 <div id="one_third" dock="left" width="share(1, 3)"></div>
-<div id="another" style="background-color: grey" dock="one_third.rightof" width="share(1, 3)"></div>
-<div id="and_another" style="background-color: grey" dock="right" width="share(1, 3)"></div>
+<div id="another" style="background-color: #dddddd" dock="one_third.rightof" width="share(1, 3)"></div>
+<div id="and_another" style="background-color: #dddddd" dock="right" width="share(1, 3)"></div>
 ```
 
 Because of the gaps, just dividing the width by 3 is not accurate, so we use a convenience function
