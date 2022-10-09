@@ -58,7 +58,7 @@ try:
 
             # Lines to show on site
             example_lines = "\n".join(example_content[slice(start_line, end_line)])
-            # example_lines = example_lines.replace("<", "&lt;")  # .replace("\n", "<br/>")
+            example_lines = example_lines.replace("<", "&lt;")  # .replace("\n", "<br/>")
 
             # Add example table
             example_table = example_snippet.format(
