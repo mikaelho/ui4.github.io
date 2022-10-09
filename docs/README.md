@@ -45,18 +45,38 @@ and `centery`.
 Same `top` and `left` work with peer elements in an intuitive way, "pushing" against them instead
 of aligning with the edge.
 
-#### "Just put it in the center"
+#### "I want them closer"
 
 
 <table>
   <tr>
     <td>
       <sub>EXAMPLE 3</sub>
-      <pre lang="html">&lt;div id="centered" dock="center">&lt;/div></pre>
+      <pre lang="html">&lt;div id="b" top="root.top" left="root.left">B&lt;/div>
+&lt;div id="a" top="b.bottom-(gap-1)" left="b.left">A&lt;/div></pre>
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0003.html"></iframe><br/>
       <button onclick="location.href='examples/example0003.html'">Open in full screen</button>
+    </td>
+  </tr>
+</table>
+
+Simple math is available, including `min` and `max`. `gap` is by default 8 (px). In the example it
+is used to make sure there is only 1 pixel between A and B, no matter what the gap has been set to.
+
+#### "Just put it in the center"
+
+
+<table>
+  <tr>
+    <td>
+      <sub>EXAMPLE 4</sub>
+      <pre lang="html">&lt;div id="centered" dock="center">&lt;/div></pre>
+    </td>
+    <td>
+      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0004.html"></iframe><br/>
+      <button onclick="location.href='examples/example0004.html'">Open in full screen</button>
     </td>
   </tr>
 </table>
@@ -70,12 +90,12 @@ convenient and easier to read options.
 <table>
   <tr>
     <td>
-      <sub>EXAMPLE 4</sub>
+      <sub>EXAMPLE 5</sub>
       <pre lang="html">&lt;div id="topBanner" dock="top" height="30">&lt;/div></pre>
     </td>
     <td>
-      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0004.html"></iframe><br/>
-      <button onclick="location.href='examples/example0004.html'">Open in full screen</button>
+      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0005.html"></iframe><br/>
+      <button onclick="location.href='examples/example0005.html'">Open in full screen</button>
     </td>
   </tr>
 </table>
@@ -95,13 +115,13 @@ All the options for docking to the parent are:
 <table>
   <tr>
     <td>
-      <sub>EXAMPLE 5</sub>
+      <sub>EXAMPLE 6</sub>
       <pre lang="html">&lt;div id="b" dock="center" width="50" height="30">B&lt;/div>
 &lt;div id="a" dock="b.above" height="30">A&lt;/div></pre>
     </td>
     <td>
-      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0005.html"></iframe><br/>
-      <button onclick="location.href='examples/example0005.html'">Open in full screen</button>
+      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0006.html"></iframe><br/>
+      <button onclick="location.href='examples/example0006.html'">Open in full screen</button>
     </td>
   </tr>
 </table>

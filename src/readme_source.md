@@ -25,6 +25,16 @@ and `centery`.
 Same `top` and `left` work with peer elements in an intuitive way, "pushing" against them instead
 of aligning with the edge.
 
+#### "I want them closer"
+
+```html example solid_sized
+<div id="b" top="root.top" left="root.left">B</div>
+<div id="a" top="b.bottom-(gap-1)" left="b.left">A</div>
+```
+
+Simple math is available, including `min` and `max`. `gap` is by default 8 (px). In the example it
+is used to make sure there is only 1 pixel between A and B, no matter what the gap has been set to.
+
 #### "Just put it in the center"
 
 ```html example solid_sized
