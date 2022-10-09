@@ -13,7 +13,7 @@ ui4 provides an alternative for placing UI elements on the screen. Let's look at
       <pre>&lt;div id="square" top="root.top" left="root.left">&lt;/div></pre>
     </td>
     <td>
-      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0001.html"></iframe>
+      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0001.html"></iframe><br/>
       <button onclick="location.href='examples/example0001.html'">Open in full screen</button>
     </td>
   </tr>
@@ -36,7 +36,7 @@ and `centery`.
 &lt;div id="a" top="b.bottom" left="b.left">A&lt;/div></pre>
     </td>
     <td>
-      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0002.html"></iframe>
+      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0002.html"></iframe><br/>
       <button onclick="location.href='examples/example0002.html'">Open in full screen</button>
     </td>
   </tr>
@@ -55,7 +55,7 @@ of aligning with the edge.
       <pre>&lt;div id="centered" dock="center">&lt;/div></pre>
     </td>
     <td>
-      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0003.html"></iframe>
+      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0003.html"></iframe><br/>
       <button onclick="location.href='examples/example0003.html'">Open in full screen</button>
     </td>
   </tr>
@@ -74,7 +74,7 @@ convenient and easier to read options.
       <pre>&lt;div id="topBanner" dock="top" height="30">&lt;/div></pre>
     </td>
     <td>
-      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0004.html"></iframe>
+      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0004.html"></iframe><br/>
       <button onclick="location.href='examples/example0004.html'">Open in full screen</button>
     </td>
   </tr>
@@ -100,7 +100,7 @@ All the options for docking to the parent are:
 &lt;div id="a" dock="b.above" height="30">&lt;/div></pre>
     </td>
     <td>
-      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0005.html"></iframe>
+      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0005.html"></iframe><br/>
       <button onclick="location.href='examples/example0005.html'">Open in full screen</button>
     </td>
   </tr>
