@@ -71,21 +71,25 @@ beside another one and set the shared dimension (width in the example above) to 
 
 #### "A should be between these two guys"
 
-```html example solid 1
-<div id="a" dock="between(b, c)" size="b.size">A</div>
+```html example solid 3
 <div id="b" dock="left" width="20">B</div>
 <div id="c" dock="right" width="20">C</div>
+<div id="a" dock="between(b, c)" size="b.size">A</div>
 ```
 
 Here, "between" means the center of the element is placed halfway between the centers of the other
 two elements.
 
+We also use the `size` shorthand instead of specifying `width` and `height` separately. Other
+available shorthands are `position` (instead of `left` and `top`) and `frame` (matching both size
+and position).
+
 #### "No, I mean stretched all the way between them"
 
-```html example solid 1
-<div id="a" dock="between(b.right, c.left)">A</div>
+```html example solid 3
 <div id="b" dock="left" width="20">B</div>
 <div id="c" dock="right" width="20">C</div>
+<div id="a" dock="between(b.right, c.left)">A</div>
 ```
 
 #### "This is a third of the size of the whole thing"

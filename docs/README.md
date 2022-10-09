@@ -147,6 +147,10 @@ beside another one and set the shared dimension (width in the example above) to 
 Here, "between" means the center of the element is placed halfway between the centers of the other
 two elements.
 
+We also use the `size` shorthand instead of specifying `width` and `height` separately. Other
+available shorthands are `position` (instead of `left` and `top`) and `frame` (matching both size
+and position).
+
 #### "No, I mean stretched all the way between them"
 
 
