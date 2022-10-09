@@ -19,10 +19,11 @@ and `centery`.
 
 ```html example solid_sized
 <div id="b" top="root.top" left="root.left">B</div>
-<div id="a" top="square.bottom" left="square.left">A</div>
+<div id="a" top="b.bottom" left="b.left">A</div>
 ```
 
-Same `top` and `left` work with peer elements in an intuitive way.
+Same `top` and `left` work with peer elements in an intuitive way, "pushing" against them instead
+of aligning with the edge.
 
 #### "Just put it in the center"
 
@@ -35,6 +36,16 @@ convenient and easier to read options.
 
 #### "This is a top banner"
 
+```html example solid
+<div id="topBanner" dock="top" height="200"></div>
+```
 
+Docking to the top connects the left, top and right edges of the element; bottom or height is set
+separately.
+
+Parent container docking options are:
+- `top`, `left`, `right`, `bottom`
+- `topleft`, `topright`, `bottomleft`, `bottomright`
+- `topcenter`, `leftcenter`, `rightcenter`, `bottomcenter`
 
 Place this div between A and B:

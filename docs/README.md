@@ -24,13 +24,14 @@ and `centery`.
 <table><th><td>This is a test</td></th><tr><td>This is a test></td></tr></table>
 ```html
 <div id="b" top="root.top" left="root.left">B</div>
-<div id="a" top="square.bottom" left="square.left">A</div>
+<div id="a" top="b.bottom" left="b.left">A</div>
 ```
 <SUP>EXAMPLE 2</SUP>
 <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0002.html"></iframe>
 <button onclick="location.href='examples/example0002.html'">Open in full screen</button>
 
-Same `top` and `left` work with peer elements in an intuitive way.
+Same `top` and `left` work with peer elements in an intuitive way, "pushing" against them instead
+of aligning with the edge.
 
 #### "Just put it in the center"
 
@@ -47,6 +48,20 @@ convenient and easier to read options.
 
 #### "This is a top banner"
 
+<table><th><td>This is a test</td></th><tr><td>This is a test></td></tr></table>
+```html
+<div id="topBanner" dock="top" height="200"></div>
+```
+<SUP>EXAMPLE 4</SUP>
+<iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0004.html"></iframe>
+<button onclick="location.href='examples/example0004.html'">Open in full screen</button>
 
+Docking to the top connects the left, top and right edges of the element; bottom or height is set
+separately.
+
+Parent container docking options are:
+- `top`, `left`, `right`, `bottom`
+- `topleft`, `topright`, `bottomleft`, `bottomright`
+- `topcenter`, `leftcenter`, `rightcenter`, `bottomcenter`
 
 Place this div between A and B:
