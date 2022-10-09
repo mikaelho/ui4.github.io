@@ -8,6 +8,7 @@ example_in_source = re.compile(
     r"```html example(\s+(?P<template>[\w_]+))?(\s+(?P<start_line>\d+)(-(?P<end_line>\d+))?)?"
 )
 
+# Empty line before code example is necessary to make syntax highlighting work
 example_snippet = """
 <table class="example">
   <tr>
