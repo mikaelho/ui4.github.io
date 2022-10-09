@@ -13,13 +13,22 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 50px; height: 50px}
+            width: 50px; height: 50px;
+        }
+        div#b {
+            color: black;
+            background-color: #eeeeee;
+        }
+        div#c {
+            color: black;
+            background-color: #eeeeee;
+        }
     </style>
 </head>
 <body>
 <div id="root" class="ui4Root">
-<div id="b" top="root.top" left="root.left">B</div>
 <div id="a" top="b.bottom" left="b.left">A</div>
+<div id="b" top="root.top" left="root.left">B</div>
 </div>
 </body>
 </html>

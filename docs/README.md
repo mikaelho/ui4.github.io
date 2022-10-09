@@ -32,8 +32,8 @@ and `centery`.
   <tr>
     <td>
       <sub>EXAMPLE 2</sub>
-      <pre>&lt;div id="b" top="root.top" left="root.left">B&lt;/div>
-&lt;div id="a" top="b.bottom" left="b.left">A&lt;/div></pre>
+      <pre>&lt;div id="a" top="b.bottom" left="b.left">A&lt;/div>
+&lt;div id="b" top="root.top" left="root.left">B&lt;/div></pre>
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0002.html"></iframe><br/>
@@ -52,8 +52,8 @@ of aligning with the edge.
   <tr>
     <td>
       <sub>EXAMPLE 3</sub>
-      <pre>&lt;div id="b" top="root.top" left="root.left">B&lt;/div>
-&lt;div id="a" top="b.bottom-(gap-1)" left="b.left">A&lt;/div></pre>
+      <pre>&lt;div id="a" top="b.bottom-(gap-1)" left="b.left">A&lt;/div>
+&lt;div id="b" top="root.top" left="root.left">B&lt;/div></pre>
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0003.html"></iframe><br/>
@@ -116,8 +116,7 @@ All the options for docking to the parent are:
   <tr>
     <td>
       <sub>EXAMPLE 6</sub>
-      <pre>&lt;div id="b" dock="center" width="50" height="30">B&lt;/div>
-&lt;div id="a" dock="b.above" height="30">A&lt;/div></pre>
+      <pre>&lt;div id="a" dock="b.above" height="30">A&lt;/div></pre>
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0006.html"></iframe><br/>
@@ -129,18 +128,37 @@ All the options for docking to the parent are:
 These convenience docking options, `above`, `below`, `rightof` and `leftof`, place the element
 beside another one and set the shared dimension (width in the example above) to be the same.
 
-#### "This is a third of the size of the whole thing"
+### "A should be between these two guys"
 
 
 <table class="example">
   <tr>
     <td>
       <sub>EXAMPLE 7</sub>
-      <pre>&lt;div id="one_third" dock="left" width="share(1, 3)">&lt;/div></pre>
+      <pre>&lt;div id="a" dock="between(b, c)" size="b.size">A&lt;/div></pre>
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0007.html"></iframe><br/>
       <button onclick="location.href='examples/example0007.html'">Open in full screen</button>
+    </td>
+  </tr>
+</table>
+
+Here, "between" means the center of the element is placed halfway between the centers of the other
+two elements.
+
+#### "This is a third of the size of the whole thing"
+
+
+<table class="example">
+  <tr>
+    <td>
+      <sub>EXAMPLE 8</sub>
+      <pre>&lt;div id="one_third" dock="left" width="share(1, 3)">&lt;/div></pre>
+    </td>
+    <td>
+      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0008.html"></iframe><br/>
+      <button onclick="location.href='examples/example0008.html'">Open in full screen</button>
     </td>
   </tr>
 </table>

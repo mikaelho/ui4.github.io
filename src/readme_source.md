@@ -18,8 +18,8 @@ and `centery`.
 #### "Connect A to B"
 
 ```html example solid_sized
-<div id="b" top="root.top" left="root.left">B</div>
 <div id="a" top="b.bottom" left="b.left">A</div>
+<div id="b" top="root.top" left="root.left">B</div>
 ```
 
 Same `top` and `left` work with peer elements in an intuitive way, "pushing" against them instead
@@ -28,8 +28,8 @@ of aligning with the edge.
 #### "I want them closer"
 
 ```html example solid_sized
-<div id="b" top="root.top" left="root.left">B</div>
 <div id="a" top="b.bottom-(gap-1)" left="b.left">A</div>
+<div id="b" top="root.top" left="root.left">B</div>
 ```
 
 Simple math is available, including `min` and `max`. `gap` is by default 8 (px). In the example it
@@ -61,13 +61,24 @@ All the options for docking to the parent are:
 
 #### "Put A above B"
 
-```html example solid
-<div id="b" dock="center" width="50" height="30">B</div>
+```html example solid 1
 <div id="a" dock="b.above" height="30">A</div>
+<div id="b" dock="center" width="50" height="30">B</div>
 ```
 
 These convenience docking options, `above`, `below`, `rightof` and `leftof`, place the element
 beside another one and set the shared dimension (width in the example above) to be the same.
+
+### "A should be between these two guys"
+
+```html example solid 1
+<div id="a" dock="between(b, c)" size="b.size">A</div>
+<div id="b" dock="topleft" width="50" height="30">B</div>
+<div id="c" dock="center" size="b.size">C</div>
+```
+
+Here, "between" means the center of the element is placed halfway between the centers of the other
+two elements.
 
 #### "This is a third of the size of the whole thing"
 
