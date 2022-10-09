@@ -45,7 +45,7 @@ try:
             Path(f"docs/examples/{example_file_name}").write_text(example)
 
             # Add example heading
-            lines_out.append(f"### Example {example_number}")
+            lines_out.append(f"**Example {example_number}**")
 
             # Add example snippet
             example_lines = "\n".join(example_content[slice(start_line, end_line)])
@@ -55,7 +55,9 @@ try:
             lines_out.append(running_example.format(f"examples/{example_file_name}"))
 
             # Add link to full example code
-            lines_out.append(f"Open in full screen [>>>](examples/{example_file_name})")
+            lines_out.append(
+                f'<button onclick="location.href=\'examples/{example_file_name}\'">Open in full screen</button>'
+            )
 
 except StopIteration:
     pass
