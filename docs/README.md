@@ -107,7 +107,7 @@ All the options for docking to the parent are:
 - `top`, `left`, `right`, `bottom`
 - `topleft`, `topright`, `bottomleft`, `bottomright`
 - `topcenter`, `leftcenter`, `rightcenter`, `bottomcenter`
-- `all`
+- `center`, `all`
 
 #### "Put A above B"
 
