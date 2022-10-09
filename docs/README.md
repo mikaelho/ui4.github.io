@@ -96,8 +96,8 @@ All the options for docking to the parent are:
   <tr>
     <td>
       <sub>EXAMPLE 5</sub>
-      <pre>&lt;div id="b" dock="center" width="50" height="30">&lt;/div>
-&lt;div id="a" dock="b.above" height="30">&lt;/div></pre>
+      <pre>&lt;div id="b" dock="center" width="50" height="30">B&lt;/div>
+&lt;div id="a" dock="b.above" height="30">A&lt;/div></pre>
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0005.html"></iframe><br/>
@@ -107,6 +107,6 @@ All the options for docking to the parent are:
 </table>
 
 These convenience docking options, `above`, `below`, `rightof` and `leftof`, place the element
-besides another one and set the shared dimension (width in the example above) to be the same.
+beside another one and set the shared dimension (width in the example above) to be the same.
 
 Place this div between A and B:

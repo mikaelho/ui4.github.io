@@ -5,13 +5,21 @@
     <title>ui4 Example 5</title>
     <script src="ui4.js"></script>
     <style>
-        div#root > * {background-color: cornflowerblue;}
+        div#root > * {
+            background-color: cornflowerblue;
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
 <div id="root" class="ui4Root">
-<div id="b" dock="center" width="50" height="30"></div>
-<div id="a" dock="b.above" height="30"></div>
+<div id="b" dock="center" width="50" height="30">B</div>
+<div id="a" dock="b.above" height="30">A</div>
 </div>
 </body>
 </html>

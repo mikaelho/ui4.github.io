@@ -52,11 +52,11 @@ All the options for docking to the parent are:
 #### "Put A above B"
 
 ```html example solid
-<div id="b" dock="center" width="50" height="30"></div>
-<div id="a" dock="b.above" height="30"></div>
+<div id="b" dock="center" width="50" height="30">B</div>
+<div id="a" dock="b.above" height="30">A</div>
 ```
 
 These convenience docking options, `above`, `below`, `rightof` and `leftof`, place the element
-besides another one and set the shared dimension (width in the example above) to be the same.
+beside another one and set the shared dimension (width in the example above) to be the same.
 
 Place this div between A and B:
