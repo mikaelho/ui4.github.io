@@ -9,7 +9,7 @@ example_re = re.compile(
 )
 
 example_snippet = """
-<table>
+<table class="example">
   <tr>
     <td>
       <sub>{}</sub>

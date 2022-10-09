@@ -69,4 +69,13 @@ All the options for docking to the parent are:
 These convenience docking options, `above`, `below`, `rightof` and `leftof`, place the element
 beside another one and set the shared dimension (width in the example above) to be the same.
 
+#### "This is a third of the size of the whole thing"
+
+```html example solid
+<div id="third" dock="left" width="share(1, 3)"></div>
+```
+
+Because of the gaps, just dividing the width by 3 is not accurate, so we have convenience function
+for getting "gap-observing" shares of the whole.
+
 Place this div between A and B:
