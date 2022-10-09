@@ -11,19 +11,3 @@ ui4 provides an alternative for placing UI elements on the screen. Let's look at
 ```
 <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0001.html"></iframe>
 <button onclick="location.href='examples/example0001.html'">Open in full screen</button>
-
-Place this button in the top-right corner:
-
-
-(Still easily doable with CSS top/right styles.)
-
-Place (and keep) this button in the middle of the parent:
-
-
-Place this button below the previous one:
-
-
-Make this div fill the top of the parent and be 100px in height:
-
-
-Place this div between A and B:
