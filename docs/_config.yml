@@ -1,2 +1,4 @@
 title: ui4html - HTML UI layout
-highlighter: rouge
+kramdown:
+  syntax_highlighter_opts:
+    disable : true

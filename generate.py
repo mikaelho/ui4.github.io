@@ -8,11 +8,18 @@ example_re = re.compile(
     r"```html example(\s+(?P<template>[\w_]+))?(\s+(?P<start_line>\d+)(-(?P<end_line>\d+))?)?"
 )
 
-example_snippet = """<table>
-<tr>
-<td><pre>{}</pre><sup>{}</sup></td>
-<td>{}{}</td>
-</tr>
+example_snippet = """
+<table>
+  <tr>
+    <td>
+      <sub>{}</sub>
+      <pre>{}</pre>
+    </td>
+    <td>
+      {}
+      {}
+    </td>
+  </tr>
 </table>"""
 
 running_example = (
@@ -52,8 +59,8 @@ try:
 
             # Add example table
             example_table = example_snippet.format(
-                example_lines,
                 f"Example {example_number}".upper(),
+                example_lines,
                 running_example.format(f"examples/{example_file_name}"),
                 f'<button onclick="location.href=\'examples/{example_file_name}\'">Open in full screen</button>'
             )
