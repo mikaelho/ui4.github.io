@@ -14,10 +14,7 @@ example_snippet = """
   <tr>
     <td>
       <sub>{}</sub>
-      
-```html
-{}
-```
+      <pre>{}</pre>
     </td>
     <td>
       {}<br/>
