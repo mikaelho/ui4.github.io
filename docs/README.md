@@ -136,7 +136,8 @@ beside another one and set the shared dimension (width in the example above) to 
   <tr>
     <td>
       <sub>EXAMPLE 7</sub>
-      <pre lang="html">&lt;div id="third" dock="left" width="share(1, 3)">&lt;/div></pre>
+      <pre lang="html">&lt;div id="another" style="background-color: grey" dock="third.rightof" width="share(1, 3)">&lt;/div>
+&lt;div id="and_another" style="background-color: grey" dock="right" width="share(1, 3)">&lt;/div></pre>
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0007.html"></iframe><br/>

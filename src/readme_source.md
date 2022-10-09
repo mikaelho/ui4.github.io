@@ -71,8 +71,10 @@ beside another one and set the shared dimension (width in the example above) to 
 
 #### "This is a third of the size of the whole thing"
 
-```html example solid
+```html example solid 1
 <div id="third" dock="left" width="share(1, 3)"></div>
+<div id="another" style="background-color: grey" dock="third.rightof" width="share(1, 3)"></div>
+<div id="and_another" style="background-color: grey" dock="right" width="share(1, 3)"></div>
 ```
 
 Because of the gaps, just dividing the width by 3 is not accurate, so we have convenience function
