@@ -18,8 +18,8 @@ and `centery`.
 #### "Connect A to B"
 
 ```html example solid_sized
-<div id="square" top="root.top" left="root.left">B</div>
-<div id="friend" top="square.bottom" left="square.left">A</div>
+<div id="b" top="root.top" left="root.left">B</div>
+<div id="a" top="square.bottom" left="square.left">A</div>
 ```
 
 Same `top` and `left` work with peer elements in an intuitive way.

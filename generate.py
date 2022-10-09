@@ -1,7 +1,7 @@
 import re
 from pathlib import Path
 
-lines_in = iter(Path("README_SOURCE.md").read_text().splitlines())
+lines_in = iter(Path("src/readme_source.md").read_text().splitlines())
 lines_out = []
 
 example_re = re.compile(
@@ -44,12 +44,12 @@ try:
 
             Path(f"docs/examples/{example_file_name}").write_text(example)
 
-            # Add example tag
-            lines_out.append(f"<sup>Example {example_number}</sup>".upper())
-
             # Add example snippet
             example_lines = "\n".join(example_content[slice(start_line, end_line)])
             lines_out.extend(example_snippet.format(example_lines).splitlines())
+
+            # Add example tag
+            lines_out.append(f"<sup>Example {example_number}</sup>".upper())
 
             # Add example iframe
             lines_out.append(running_example.format(f"examples/{example_file_name}"))

@@ -5,10 +5,10 @@ ui4 provides an alternative for placing UI elements on the screen. Let's look at
 
 #### "Connect this to the corner"
 
-<SUP>EXAMPLE 1</SUP>
 ```html
 <div id="square" top="root.top" left="root.left"></div>
 ```
+<SUP>EXAMPLE 1</SUP>
 <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0001.html"></iframe>
 <button onclick="location.href='examples/example0001.html'">Open in full screen</button>
 
@@ -20,11 +20,11 @@ and `centery`.
 
 #### "Connect A to B"
 
-<SUP>EXAMPLE 2</SUP>
 ```html
-<div id="square" top="root.top" left="root.left">B</div>
-<div id="friend" top="square.bottom" left="square.left">A</div>
+<div id="b" top="root.top" left="root.left">B</div>
+<div id="a" top="square.bottom" left="square.left">A</div>
 ```
+<SUP>EXAMPLE 2</SUP>
 <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0002.html"></iframe>
 <button onclick="location.href='examples/example0002.html'">Open in full screen</button>
 
@@ -32,10 +32,10 @@ Same `top` and `left` work with peer elements in an intuitive way.
 
 #### "Just put it in the center"
 
-<SUP>EXAMPLE 3</SUP>
 ```html
 <div id="centered" dock="center"></div>
 ```
+<SUP>EXAMPLE 3</SUP>
 <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0003.html"></iframe>
 <button onclick="location.href='examples/example0003.html'">Open in full screen</button>
 
