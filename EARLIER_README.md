@@ -14,7 +14,7 @@ Table test:
 <table>
 <tr>
 <td>
-<pre lang="html"><div></div></pre>
+<pre lang="html">&lt;div id="foo">&lt;/div></pre>
 </td>
 </tr>
 </table>
