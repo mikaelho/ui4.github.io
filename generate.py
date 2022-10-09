@@ -44,8 +44,11 @@ try:
 
             Path(f"docs/examples/{example_file_name}").write_text(example)
 
+            # Add example heading
+            lines_out.append(f"### Example {example_number}")
+
             # Add example snippet
-            example_lines = example_content[slice(start_line, end_line)]
+            example_lines = "\n".join(example_content[slice(start_line, end_line)])
             lines_out.extend(example_snippet.format(example_lines).splitlines())
 
             # Add example iframe
