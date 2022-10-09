@@ -128,7 +128,7 @@ All the options for docking to the parent are:
 These convenience docking options, `above`, `below`, `rightof` and `leftof`, place the element
 beside another one and set the shared dimension (width in the example above) to be the same.
 
-### "A should be between these two guys"
+#### "A should be between these two guys"
 
 
 <table class="example">
@@ -147,18 +147,34 @@ beside another one and set the shared dimension (width in the example above) to 
 Here, "between" means the center of the element is placed halfway between the centers of the other
 two elements.
 
-#### "This is a third of the size of the whole thing"
+#### "No, I mean stretched all the way between them"
 
 
 <table class="example">
   <tr>
     <td>
       <sub>EXAMPLE 8</sub>
-      <pre>&lt;div id="one_third" dock="left" width="share(1, 3)">&lt;/div></pre>
+      <pre>&lt;div id="a" dock="between(b.right, c.left)">A&lt;/div></pre>
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0008.html"></iframe><br/>
       <button onclick="location.href='examples/example0008.html'">Open in full screen</button>
+    </td>
+  </tr>
+</table>
+
+#### "This is a third of the size of the whole thing"
+
+
+<table class="example">
+  <tr>
+    <td>
+      <sub>EXAMPLE 9</sub>
+      <pre>&lt;div id="one_third" dock="left" width="share(1, 3)">&lt;/div></pre>
+    </td>
+    <td>
+      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0009.html"></iframe><br/>
+      <button onclick="location.href='examples/example0009.html'">Open in full screen</button>
     </td>
   </tr>
 </table>

@@ -69,16 +69,24 @@ All the options for docking to the parent are:
 These convenience docking options, `above`, `below`, `rightof` and `leftof`, place the element
 beside another one and set the shared dimension (width in the example above) to be the same.
 
-### "A should be between these two guys"
+#### "A should be between these two guys"
 
 ```html example solid 1
 <div id="a" dock="between(b, c)" size="b.size">A</div>
-<div id="b" dock="topleft" width="50" height="30">B</div>
-<div id="c" dock="center" size="b.size">C</div>
+<div id="b" dock="left" width="20">B</div>
+<div id="c" dock="right" width="20">C</div>
 ```
 
 Here, "between" means the center of the element is placed halfway between the centers of the other
 two elements.
+
+#### "No, I mean stretched all the way between them"
+
+```html example solid 1
+<div id="a" dock="between(b.right, c.left)">A</div>
+<div id="b" dock="left" width="20">B</div>
+<div id="c" dock="right" width="20">C</div>
+```
 
 #### "This is a third of the size of the whole thing"
 
