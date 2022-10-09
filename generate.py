@@ -44,8 +44,8 @@ try:
 
             Path(f"docs/examples/{example_file_name}").write_text(example)
 
-            # Add example heading
-            lines_out.append(f"**Example {example_number}**")
+            # Add example tag
+            lines_out.append(f"<sup>Example {example_number}</sup>".upper())
 
             # Add example snippet
             example_lines = "\n".join(example_content[slice(start_line, end_line)])
