@@ -9,6 +9,16 @@ ui4 treats the HTML document as a fixed-screen canvas, and not an eternally scro
 
 For convenience and less code, a number of shortcuts like `dock=center` are available.
 
+Table test:
+
+<table>
+<tr>
+<td>
+<pre lang="html"><div></div></pre>
+</td>
+</tr>
+</table>
+
 # Primitives
 
 You can place elements precisely but flexibly with a set of layout primitives: `left`/`x`, `top`/`y`, `right`, `bottom`, `centerx`, `centery`, `width`, `height`.
@@ -105,3 +115,5 @@ If you prefer, you can split the `ui4` attribute into several attributes, which 
 </div>
 </body>
 </html>
+
+
