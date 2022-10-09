@@ -23,7 +23,14 @@ In addition to `top` and `left`, you can also use `bottom`, `right`, `centerx` a
 
 Same `top` and `left` work with peer elements.
 
-Place this button in the top-right corner:
+#### Just put it in the center
+
+```html example solid_sized
+<div id="centered" dock="center"></div>
+```
+
+Instead of using the primitives (like `centerx` and `centery` in this case), `dock` provides
+convenient shorter versions: 
 
 
 (Still easily doable with CSS top/right styles.)
