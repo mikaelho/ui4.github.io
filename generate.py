@@ -48,6 +48,8 @@ try:
             example = example.replace("[content]", "\n".join(example_content))
             start_line = (start_as_str := meta.get("start_line")) and int(start_as_str) or None
             end_line = (end_as_str := meta.get("end_line")) and int(end_as_str) or None
+            end_line = end_line or start_line
+            start_line = start_line and start_line - 1 or None
 
             # Save example file
             example_file_name = f"example{example_number:04}.html"
@@ -66,31 +68,6 @@ try:
             )
 
             lines_out.extend(example_table.splitlines())
-            # lines_out.append("<table>")
-            # lines_out.append("<tr>")
-            # lines_out.append("<td><code>")
-            # lines_out.append(example_lines)
-            # lines_out.append("</code></td>")
-            # lines_out.append("<td>")
-            # lines_out.append(running_example.format(f"examples/{example_file_name}"))
-            # lines_out.append("</td>")
-            # lines_out.append("</tr>")
-            # lines_out.append("<tr>")
-            # lines_out.append("</table>")
-
-            # Add example snippet
-            # lines_out.extend()
-
-            # Add example tag
-            # lines_out.append(f"<sup>Example {example_number}</sup>".upper())
-
-            # Add example iframe
-            # lines_out.append(running_example.format(f"examples/{example_file_name}"))
-
-            # Add link to full example code
-            # lines_out.append(
-            #     f'<button onclick="location.href=\'examples/{example_file_name}\'">Open in full screen</button>'
-            # )
 
 except StopIteration:
     pass
