@@ -12,7 +12,8 @@ ui4 provides an alternative for placing UI elements on the screen. Let's look at
 Pretty close to CSS `top` or `left`, just with the little gaps added between the element and the
 edges of the parent.
 
-In addition to `top` and `left`, you can also use `bottom`, `right`, `centerx` and `centery`.
+In addition to `top` and `left`, you can also use `bottom`, `right`, `width`, `height`, `centerx`
+and `centery`.
 
 #### Connect to another element
 
@@ -30,7 +31,7 @@ Same `top` and `left` work with peer elements.
 ```
 
 Instead of using the primitives (like `centerx` and `centery` in this case), `dock` provides
-convenient shorter versions: 
+convenient and easier to read options.
 
 
 (Still easily doable with CSS top/right styles.)
