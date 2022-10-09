@@ -10,7 +10,10 @@ ui4 provides an alternative for placing UI elements on the screen. Let's look at
   <tr>
     <td>
       <sub>EXAMPLE 1</sub>
-      <pre lang="html">&lt;div id="square" top="root.top" left="root.left">&lt;/div></pre>
+      
+```html
+<div id="square" top="root.top" left="root.left"></div>
+```
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0001.html"></iframe><br/>
@@ -32,8 +35,11 @@ and `centery`.
   <tr>
     <td>
       <sub>EXAMPLE 2</sub>
-      <pre lang="html">&lt;div id="b" top="root.top" left="root.left">B&lt;/div>
-&lt;div id="a" top="b.bottom" left="b.left">A&lt;/div></pre>
+      
+```html
+<div id="b" top="root.top" left="root.left">B</div>
+<div id="a" top="b.bottom" left="b.left">A</div>
+```
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0002.html"></iframe><br/>
@@ -52,8 +58,11 @@ of aligning with the edge.
   <tr>
     <td>
       <sub>EXAMPLE 3</sub>
-      <pre lang="html">&lt;div id="b" top="root.top" left="root.left">B&lt;/div>
-&lt;div id="a" top="b.bottom-(gap-1)" left="b.left">A&lt;/div></pre>
+      
+```html
+<div id="b" top="root.top" left="root.left">B</div>
+<div id="a" top="b.bottom-(gap-1)" left="b.left">A</div>
+```
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0003.html"></iframe><br/>
@@ -72,7 +81,10 @@ is used to make sure there is only 1 pixel between A and B, no matter what the g
   <tr>
     <td>
       <sub>EXAMPLE 4</sub>
-      <pre lang="html">&lt;div id="centered" dock="center">&lt;/div></pre>
+      
+```html
+<div id="centered" dock="center"></div>
+```
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0004.html"></iframe><br/>
@@ -91,7 +103,10 @@ convenient and easier to read options.
   <tr>
     <td>
       <sub>EXAMPLE 5</sub>
-      <pre lang="html">&lt;div id="topBanner" dock="top" height="30">&lt;/div></pre>
+      
+```html
+<div id="topBanner" dock="top" height="30"></div>
+```
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0005.html"></iframe><br/>
@@ -116,8 +131,11 @@ All the options for docking to the parent are:
   <tr>
     <td>
       <sub>EXAMPLE 6</sub>
-      <pre lang="html">&lt;div id="b" dock="center" width="50" height="30">B&lt;/div>
-&lt;div id="a" dock="b.above" height="30">A&lt;/div></pre>
+      
+```html
+<div id="b" dock="center" width="50" height="30">B</div>
+<div id="a" dock="b.above" height="30">A</div>
+```
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0006.html"></iframe><br/>
@@ -136,7 +154,10 @@ beside another one and set the shared dimension (width in the example above) to 
   <tr>
     <td>
       <sub>EXAMPLE 7</sub>
-      <pre lang="html">&lt;div id="one_third" dock="left" width="share(1, 3)">&lt;/div></pre>
+      
+```html
+<div id="one_third" dock="left" width="share(1, 3)"></div>
+```
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0007.html"></iframe><br/>

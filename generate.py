@@ -4,7 +4,7 @@ from pathlib import Path
 lines_in = iter(Path("src/readme_source.md").read_text().splitlines())
 lines_out = []
 
-example_re = re.compile(
+example_in_source = re.compile(
     r"```html example(\s+(?P<template>[\w_]+))?(\s+(?P<start_line>\d+)(-(?P<end_line>\d+))?)?"
 )
 
@@ -13,7 +13,10 @@ example_snippet = """
   <tr>
     <td>
       <sub>{}</sub>
-      <pre lang="html">{}</pre>
+      
+```html
+{}
+```
     </td>
     <td>
       {}<br/>
@@ -31,7 +34,7 @@ example_number = 0
 try:
     while True:
         line = next(lines_in)
-        match = example_re.match(line)
+        match = example_in_source.match(line)
         if not match:
             lines_out.append(line)
         else:
@@ -57,7 +60,7 @@ try:
 
             # Lines to show on site
             example_lines = "\n".join(example_content[slice(start_line, end_line)])
-            example_lines = example_lines.replace("<", "&lt;")  # .replace("\n", "<br/>")
+            # example_lines = example_lines.replace("<", "&lt;")  # .replace("\n", "<br/>")
 
             # Add example table
             example_table = example_snippet.format(
