@@ -186,4 +186,28 @@ and position).
 Because of the gaps, just dividing the width by 3 is not accurate, so we use a convenience function
 for getting "gap-observing" shares of the whole.
 
-Place this div between A and B:
+Of course, rather than managing sizes like this, you want to...
+
+#### "Just throw some boxes in there"
+
+
+<table class="example">
+  <tr>
+    <td>
+      <sub>EXAMPLE 10</sub>
+      <pre>&lt;div id="resizable" layout="grid">
+    &lt;div>&lt;/div>
+    &lt;div>&lt;/div>
+    &lt;div>&lt;/div>
+&lt;/div></pre>
+    </td>
+    <td>
+      <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0010.html"></iframe><br/>
+      <button onclick="location.href='examples/example0010.html'">Open in full screen</button>
+    </td>
+  </tr>
+</table>
+
+Grid layout takes whatever you give it and layouts them so that they are as square as possible but
+still fill the available space. Try resizing the example to see how it behaves (handle in the
+bottom right corner).

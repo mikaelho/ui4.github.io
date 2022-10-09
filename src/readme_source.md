@@ -72,8 +72,8 @@ beside another one and set the shared dimension (width in the example above) to 
 #### "A should be between these two guys"
 
 ```html example solid 3
-<div id="b" dock="left" width="20">B</div>
-<div id="c" dock="right" width="20">C</div>
+<div id="b" dock="left" width="40">B</div>
+<div id="c" dock="right" width="40">C</div>
 <div id="a" dock="between(b, c)" size="b.size">A</div>
 ```
 
@@ -87,8 +87,8 @@ and position).
 #### "No, I mean stretched all the way between them"
 
 ```html example solid 3
-<div id="b" dock="left" width="20">B</div>
-<div id="c" dock="right" width="20">C</div>
+<div id="b" dock="left" width="40">B</div>
+<div id="c" dock="right" width="40">C</div>
 <div id="a" dock="between(b.right, c.left)">A</div>
 ```
 
@@ -103,4 +103,18 @@ and position).
 Because of the gaps, just dividing the width by 3 is not accurate, so we use a convenience function
 for getting "gap-observing" shares of the whole.
 
-Place this div between A and B:
+Of course, rather than managing sizes like this, you want to...
+
+#### "Just throw some boxes in there"
+
+```html example solid_resizable
+<div id="resizable" layout="grid">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+```
+
+Grid layout takes whatever you give it and layouts them so that they are as square as possible but
+still fill the available space. Try resizing the example to see how it behaves (handle in the
+bottom right corner).
