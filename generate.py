@@ -8,9 +8,12 @@ example_re = re.compile(
     r"```html example(\s+(?P<template>[\w_]+))?(\s+(?P<start_line>\d+)(-(?P<end_line>\d+))?)?"
 )
 
-example_snippet = """```html
-{}
-```"""
+example_snippet = """<table>
+<tr>
+<td><pre>{}</pre><sup>{}</sup></td>
+<td>{}{}</td>
+</tr>
+</table>"""
 
 running_example = (
     '<iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="{}"></iframe>'
@@ -43,23 +46,44 @@ try:
             example_file_name = f"example{example_number:04}.html"
             Path(f"docs/examples/{example_file_name}").write_text(example)
 
-            # Add example table
-            lines_out.append(f"<table><th><td>This is a test</td></th><tr><td>This is a test></td></tr></table>")
-
-            # Add example snippet
+            # Lines to show on site
             example_lines = "\n".join(example_content[slice(start_line, end_line)])
-            lines_out.extend(example_snippet.format(example_lines).splitlines())
+            example_lines = example_lines.replace("<", "&lt;")  # .replace("\n", "<br/>")
 
-            # Add example tag
-            lines_out.append(f"<sup>Example {example_number}</sup>".upper())
-
-            # Add example iframe
-            lines_out.append(running_example.format(f"examples/{example_file_name}"))
-
-            # Add link to full example code
-            lines_out.append(
+            # Add example table
+            example_table = example_snippet.format(
+                example_lines,
+                f"Example {example_number}".upper(),
+                running_example.format(f"examples/{example_file_name}"),
                 f'<button onclick="location.href=\'examples/{example_file_name}\'">Open in full screen</button>'
             )
+
+            lines_out.extend(example_table.splitlines())
+            # lines_out.append("<table>")
+            # lines_out.append("<tr>")
+            # lines_out.append("<td><code>")
+            # lines_out.append(example_lines)
+            # lines_out.append("</code></td>")
+            # lines_out.append("<td>")
+            # lines_out.append(running_example.format(f"examples/{example_file_name}"))
+            # lines_out.append("</td>")
+            # lines_out.append("</tr>")
+            # lines_out.append("<tr>")
+            # lines_out.append("</table>")
+
+            # Add example snippet
+            # lines_out.extend()
+
+            # Add example tag
+            # lines_out.append(f"<sup>Example {example_number}</sup>".upper())
+
+            # Add example iframe
+            # lines_out.append(running_example.format(f"examples/{example_file_name}"))
+
+            # Add link to full example code
+            # lines_out.append(
+            #     f'<button onclick="location.href=\'examples/{example_file_name}\'">Open in full screen</button>'
+            # )
 
 except StopIteration:
     pass

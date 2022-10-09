@@ -37,15 +37,26 @@ convenient and easier to read options.
 #### "This is a top banner"
 
 ```html example solid
-<div id="topBanner" dock="top" height="200"></div>
+<div id="topBanner" dock="top" height="30"></div>
 ```
 
 Docking to the top connects the left, top and right edges of the element; bottom or height is set
 separately.
 
-Parent container docking options are:
+All the options for docking to the parent are:
 - `top`, `left`, `right`, `bottom`
 - `topleft`, `topright`, `bottomleft`, `bottomright`
 - `topcenter`, `leftcenter`, `rightcenter`, `bottomcenter`
+- `all`
+
+#### "Put A above B"
+
+```html example solid
+<div id="b" dock="center" width="50" height="30"></div>
+<div id="a" dock="b.above" height="30"></div>
+```
+
+These convenience docking options, `above`, `below`, `rightof` and `leftof`, place the element
+besides another one and set the shared dimension (width in the example above) to be the same.
 
 Place this div between A and B:

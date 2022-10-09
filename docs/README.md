@@ -5,13 +5,12 @@ ui4 provides an alternative for placing UI elements on the screen. Let's look at
 
 #### "Connect this to the corner"
 
-<table><th><td>This is a test</td></th><tr><td>This is a test></td></tr></table>
-```html
-<div id="square" top="root.top" left="root.left"></div>
-```
-<SUP>EXAMPLE 1</SUP>
-<iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0001.html"></iframe>
-<button onclick="location.href='examples/example0001.html'">Open in full screen</button>
+<table>
+<tr>
+<td><pre>&lt;div id="square" top="root.top" left="root.left">&lt;/div></pre><sup>EXAMPLE 1</sup></td>
+<td><iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0001.html"></iframe><button onclick="location.href='examples/example0001.html'">Open in full screen</button></td>
+</tr>
+</table>
 
 Pretty close to CSS `top` or `left`, just with the little gaps added between the element and the
 edges of the parent.
@@ -21,47 +20,58 @@ and `centery`.
 
 #### "Connect A to B"
 
-<table><th><td>This is a test</td></th><tr><td>This is a test></td></tr></table>
-```html
-<div id="b" top="root.top" left="root.left">B</div>
-<div id="a" top="b.bottom" left="b.left">A</div>
-```
-<SUP>EXAMPLE 2</SUP>
-<iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0002.html"></iframe>
-<button onclick="location.href='examples/example0002.html'">Open in full screen</button>
+<table>
+<tr>
+<td><pre>&lt;div id="b" top="root.top" left="root.left">B&lt;/div>
+&lt;div id="a" top="b.bottom" left="b.left">A&lt;/div></pre><sup>EXAMPLE 2</sup></td>
+<td><iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0002.html"></iframe><button onclick="location.href='examples/example0002.html'">Open in full screen</button></td>
+</tr>
+</table>
 
 Same `top` and `left` work with peer elements in an intuitive way, "pushing" against them instead
 of aligning with the edge.
 
 #### "Just put it in the center"
 
-<table><th><td>This is a test</td></th><tr><td>This is a test></td></tr></table>
-```html
-<div id="centered" dock="center"></div>
-```
-<SUP>EXAMPLE 3</SUP>
-<iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0003.html"></iframe>
-<button onclick="location.href='examples/example0003.html'">Open in full screen</button>
+<table>
+<tr>
+<td><pre>&lt;div id="centered" dock="center">&lt;/div></pre><sup>EXAMPLE 3</sup></td>
+<td><iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0003.html"></iframe><button onclick="location.href='examples/example0003.html'">Open in full screen</button></td>
+</tr>
+</table>
 
 Instead of using the primitives (like `centerx` and `centery` in this case), `dock` provides
 convenient and easier to read options.
 
 #### "This is a top banner"
 
-<table><th><td>This is a test</td></th><tr><td>This is a test></td></tr></table>
-```html
-<div id="topBanner" dock="top" height="200"></div>
-```
-<SUP>EXAMPLE 4</SUP>
-<iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0004.html"></iframe>
-<button onclick="location.href='examples/example0004.html'">Open in full screen</button>
+<table>
+<tr>
+<td><pre>&lt;div id="topBanner" dock="top" height="30">&lt;/div></pre><sup>EXAMPLE 4</sup></td>
+<td><iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0004.html"></iframe><button onclick="location.href='examples/example0004.html'">Open in full screen</button></td>
+</tr>
+</table>
 
 Docking to the top connects the left, top and right edges of the element; bottom or height is set
 separately.
 
-Parent container docking options are:
+All the options for docking to the parent are:
 - `top`, `left`, `right`, `bottom`
 - `topleft`, `topright`, `bottomleft`, `bottomright`
 - `topcenter`, `leftcenter`, `rightcenter`, `bottomcenter`
+- `all`
+
+#### "Put A above B"
+
+<table>
+<tr>
+<td><pre>&lt;div id="b" dock="center" width="50" height="30">&lt;/div>
+&lt;div id="a" dock="b.above" height="30">&lt;/div></pre><sup>EXAMPLE 5</sup></td>
+<td><iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0005.html"></iframe><button onclick="location.href='examples/example0005.html'">Open in full screen</button></td>
+</tr>
+</table>
+
+These convenience docking options, `above`, `below`, `rightof` and `leftof`, place the element
+besides another one and set the shared dimension (width in the example above) to be the same.
 
 Place this div between A and B:
