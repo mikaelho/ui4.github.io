@@ -3,7 +3,7 @@ Is CSS with its multiple layout engines too complicated for your needs?
 
 ui4 provides an alternative for placing UI elements on the screen. Let's look at some examples:
 
-#### Connect to the sides
+#### "Connect this to the corner"
 
 ```html example solid_sized
 <div id="square" top="root.top" left="root.left"></div>
@@ -15,11 +15,11 @@ edges of the parent.
 In addition to `top` and `left`, you can also use `bottom`, `right`, `width`, `height`, `centerx`
 and `centery`.
 
-#### Connect to another element
+#### "Connect A to B"
 
 ```html example solid_sized
-<div id="square" top="root.top" left="root.left"></div>
-<div id="friend" top="square.bottom" left="square.left"></div>
+<div id="square" top="root.top" left="root.left">B</div>
+<div id="friend" top="square.bottom" left="square.left">A</div>
 ```
 
 Same `top` and `left` work with peer elements.

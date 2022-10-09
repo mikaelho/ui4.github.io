@@ -3,7 +3,7 @@ Is CSS with its multiple layout engines too complicated for your needs?
 
 ui4 provides an alternative for placing UI elements on the screen. Let's look at some examples:
 
-#### Connect to the sides
+#### "Connect this to the corner"
 
 **Example 1**
 ```html
@@ -15,14 +15,15 @@ ui4 provides an alternative for placing UI elements on the screen. Let's look at
 Pretty close to CSS `top` or `left`, just with the little gaps added between the element and the
 edges of the parent.
 
-In addition to `top` and `left`, you can also use `bottom`, `right`, `centerx` and `centery`.
+In addition to `top` and `left`, you can also use `bottom`, `right`, `width`, `height`, `centerx`
+and `centery`.
 
-#### Connect to another element
+#### "Connect A to B"
 
 **Example 2**
 ```html
-<div id="square" top="root.top" left="root.left"></div>
-<div id="friend" top="square.bottom" left="square.left"></div>
+<div id="square" top="root.top" left="root.left">B</div>
+<div id="friend" top="square.bottom" left="square.left">A</div>
 ```
 <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0002.html"></iframe>
 <button onclick="location.href='examples/example0002.html'">Open in full screen</button>
@@ -39,7 +40,7 @@ Same `top` and `left` work with peer elements.
 <button onclick="location.href='examples/example0003.html'">Open in full screen</button>
 
 Instead of using the primitives (like `centerx` and `centery` in this case), `dock` provides
-convenient shorter versions: 
+convenient and easier to read options.
 
 
 (Still easily doable with CSS top/right styles.)
