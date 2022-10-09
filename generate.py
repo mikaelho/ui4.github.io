@@ -13,7 +13,7 @@ example_snippet = """
   <tr>
     <td>
       <sub>{}</sub>
-      <pre language="html">{}</pre>
+      <pre lang="html">{}</pre>
     </td>
     <td>
       {}<br/>
