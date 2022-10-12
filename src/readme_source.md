@@ -6,11 +6,14 @@ ui4 provides an alternative for placing UI elements on the screen. Let's look at
 #### "Connect this to the corner"
 
 ```html example solid_sized
-<div id="square" top="root.top" left="root.left"></div>
+<div id="square" top="top" left="left"></div>
 ```
 
 Pretty close to CSS `top` or `left`, just with the little gaps added between the element and the
 edges of the parent.
+
+Note that there is no need to identify the parent by id, but `left="parent_id.left"` works, and can
+make the layout more readable.
 
 In addition to `top` and `left`, you can also use `bottom`, `right`, `width`, `height`, `centerx`
 and `centery`.
@@ -19,7 +22,7 @@ and `centery`.
 
 ```html example solid_sized
 <div id="a" top="b.bottom" left="b.left">A</div>
-<div id="b" top="root.top" left="root.left">B</div>
+<div id="b" top="top" left="left">B</div>
 ```
 
 Same `top` and `left` work with peer elements in an intuitive way, "pushing" against them instead
@@ -29,7 +32,7 @@ of aligning with the edge.
 
 ```html example solid_sized
 <div id="a" top="b.bottom-(gap-1)" left="b.left">A</div>
-<div id="b" top="root.top" left="root.left">B</div>
+<div id="b" top="top" left="left">B</div>
 ```
 
 Simple math is available, including `min` and `max`. `gap` is by default 8 (px). In the example it

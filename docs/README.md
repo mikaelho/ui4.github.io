@@ -10,7 +10,7 @@ ui4 provides an alternative for placing UI elements on the screen. Let's look at
   <tr>
     <td>
       <sub>EXAMPLE 1</sub>
-      <pre>&lt;div id="square" top="root.top" left="root.left">&lt;/div></pre>
+      <pre>&lt;div id="square" top="top" left="left">&lt;/div></pre>
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0001.html"></iframe><br/>
@@ -21,6 +21,9 @@ ui4 provides an alternative for placing UI elements on the screen. Let's look at
 
 Pretty close to CSS `top` or `left`, just with the little gaps added between the element and the
 edges of the parent.
+
+Note that there is no need to identify the parent by id, but `left="parent_id.left"` works, and can
+make the layout more readable.
 
 In addition to `top` and `left`, you can also use `bottom`, `right`, `width`, `height`, `centerx`
 and `centery`.
@@ -33,7 +36,7 @@ and `centery`.
     <td>
       <sub>EXAMPLE 2</sub>
       <pre>&lt;div id="a" top="b.bottom" left="b.left">A&lt;/div>
-&lt;div id="b" top="root.top" left="root.left">B&lt;/div></pre>
+&lt;div id="b" top="top" left="left">B&lt;/div></pre>
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0002.html"></iframe><br/>
@@ -53,7 +56,7 @@ of aligning with the edge.
     <td>
       <sub>EXAMPLE 3</sub>
       <pre>&lt;div id="a" top="b.bottom-(gap-1)" left="b.left">A&lt;/div>
-&lt;div id="b" top="root.top" left="root.left">B&lt;/div></pre>
+&lt;div id="b" top="top" left="left">B&lt;/div></pre>
     </td>
     <td>
       <iframe style="border-style:none;box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);" src="examples/example0003.html"></iframe><br/>

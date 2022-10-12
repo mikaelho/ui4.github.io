@@ -94,10 +94,12 @@ class UI4 {
 
     constructor() {
         this._gap = 8;
+        this.idCounter = 0;
 
         this.allDependencies = {};
         this.sourceDependencies = {};
         this.layouts = {};
+        this.gaps = {};
 
         const _this = this;
         this.getValue = {
@@ -118,10 +120,11 @@ class UI4 {
                 context.sourceElem.clientHeight / 2 :
                 parseFloat(context.getStyle.top) + context.sourceElem.offsetHeight / 2,
             fitwidth: function (context) {
+                const gap = _this.gap(context.parentElem);
                 let left = false;
                 let right;
                 const children = context.targetElem.children;
-                if (!children.length) return 2 * _this.gap;
+                if (!children.length) return 2 * gap;
                 for (const child of children) {
                     const bbox = child.getBoundingClientRect();
                     if (left === false) {
@@ -135,13 +138,14 @@ class UI4 {
                 if (left === false) {
                     right = left = 0;
                 }
-                return right - left + 2 * _this.gap;
+                return right - left + 2 * gap;
             },
             fitheight: function (context) {
+                const gap = _this.gap(context.parentElem.id);
                 let top = false;
                 let bottom;
                 const children = context.targetElem.children;
-                if (!children.length) return 2 * _this.gap;
+                if (!children.length) return 2 * gap;
                 for (const child of children) {
                     const bbox = child.getBoundingClientRect();
                     if (top === false) {
@@ -155,7 +159,7 @@ class UI4 {
                 if (!top) {
                     bottom = top = 0;
                 }
-                return bottom - top + 2 * _this.gap;
+                return bottom - top + 2 * gap;
             }
         };
 
@@ -206,16 +210,21 @@ class UI4 {
     }
 
     // Gap is the only externally-settable parameter
-    get gap() {
+    gap(elementId) {
+        if (elementId in this.gaps) {
+            return this.gaps[elementId];
+        }
         return this._gap;
     }
 
-    set gap(value) {
+    set globalGap(value) {
         this._gap = value;
         this.checkDependencies();
     }
 
     share(targetElem, targetAttribute, shareOf, total) {
+        const gap = this.gap(targetElem.parentElement.id);
+
         const dimensions = {
             width: 'clientWidth',
             height: 'clientHeight'
@@ -230,7 +239,7 @@ class UI4 {
             throw SyntaxError('Share needs both total number of elements and this elements share of it');
         }
 
-        return (parentDimension - ((total + 1) * this.gap)) / total * shareOf + ((shareOf - 1) * this.gap);
+        return (parentDimension - ((total + 1) * gap)) / total * shareOf + ((shareOf - 1) * gap);
     }
 
     setResizeObserver(node) {
@@ -254,14 +263,14 @@ class UI4 {
             switch (mutation.type) {
                 case 'childList':
                     mutation.addedNodes.forEach((node) => {
-                        if (node.id) {
+                        if (node.getAttribute) {
                             this.setDependencies(node);
                             this.setResizeObserver(node);
                         }
                     });
                     break;
                 case 'attributes':
-                    if (mutation.target.id) {
+                    if (mutation.target.getAttribute) {
                         this.setDependencies(mutation.target);
                         this.setResizeObserver(mutation.target);
                     }
@@ -270,27 +279,35 @@ class UI4 {
         });
     }
 
-    startTracking() {
-        const observer = new MutationObserver(this.checkDependencies.bind(this));
-        observer.observe(document.body, {
-            subtree: true,
-            childList: true,
-            attributeFilter: ["style"]
-        });
-        this.checkDependencies();
-    }
+    // startTracking() {
+    //     const observer = new MutationObserver(this.checkDependencies.bind(this));
+    //     observer.observe(document.body, {
+    //         subtree: true,
+    //         childList: true,
+    //         attributeFilter: ["style"]
+    //     });
+    //     this.checkDependencies();
+    // }
 
     setDependencies(node) {
+        console.log(node.id + " " + node.className);
+        // We need the node to have an id from this point forward
+        if (!node.id) {
+            if (!node.getAttribute) return;
+            node.id = "ui4ID" + this.idCounter++;
+        }
         const targetId = node.id;
-        if (!targetId) { return; }
+        console.log('--' + node.id);
 
-        // TODO: Clean shares
+        // this.gaps[targetId] = undefined;
 
         // const ui4AnimationID = node.getAttribute("ui4anim");
 
         const ui4Attr = this.checkStyles(node);
 
         if (ui4Attr) {
+
+
             let dependencies;
             try {
                 dependencies = this.parseAndOrderDependencies(node, ui4Attr);
@@ -367,7 +384,7 @@ class UI4 {
 
         for (const attribute of node.attributes) {
             const name = attribute.name;
-            if (name in this.setValue || name in UI4.composites || ["dock", "fit", "layout"].includes(name)) {
+            if (name in this.setValue || name in UI4.composites || ["dock", "fit", "layout", "gap"].includes(name)) {
                 for (const singleConstraint of attribute.value.split(";")) {
                     const fullConstraint = `${attribute.name}=${singleConstraint}`;
                     constraintArray.push(fullConstraint);
@@ -498,10 +515,10 @@ class UI4 {
         }
 
         else if (targetAttribute === 'fit') {
-            if (sourceSpec === "width" || sourceSpec === "true") {
+            if (["width", "true", "both"].includes(sourceSpec)) {
                 this.parseCoreSpec(node, "width", comparison, `${node.id}.fitwidth`, dependencies);
             }
-            if (sourceSpec === "height" || sourceSpec === "true") {
+            if (["height", "true", "both"].includes(sourceSpec)) {
                 this.parseCoreSpec(node, "height", comparison, `${node.id}.fitheight`, dependencies);
             }
         }
@@ -510,6 +527,10 @@ class UI4 {
             let sourceTree;
             if (sourceSpec === "grid") {
                 sourceTree = {type: UI4.FUNCTION, value: "grid"};
+            } else if (sourceSpec === "column") {
+                this.parseCoreSpec(node, 'layout', comparison, 'columns(1)', dependencies);
+            } else if (sourceSpec === "row") {
+                this.parseCoreSpec(node, 'layout', comparison, 'rows(1)', dependencies);
             } else {
                 sourceTree = new UI4.Parser().parse(sourceSpec);
                 if (!(
@@ -520,15 +541,13 @@ class UI4 {
                     throw SyntaxError(`Parse error for layout: ${sourceSpec}`);
                 }
                 this.finalizeIdAndAttributeTree(node, targetAttribute, sourceTree);
-
-                // if (dependencyIDs) {
-                //     sourceTree.dependencyIDs = dependencyIDs;
-                //     dependencies.push({
-                //         targetAttribute: targetAttribute, comparison: comparison, value: sourceTree
-                //     });
-                // }
             }
-            this.layouts[node.id] = sourceTree;
+            if (sourceTree) {
+                this.layouts[node.id] = sourceTree;
+            }
+        }
+        else if (targetAttribute === 'gap') {
+            this.gaps[node.id] = parseFloat(sourceSpec);
         }
 
         else {
@@ -610,34 +629,44 @@ class UI4 {
 
     finalizeIdAndAttributeTree(node, targetAttribute, sourceTree) {
         const _this = this;
-        const walker = function(node) {
-            switch (node.type) {
+        const _node = node;
+        const walker = function(treeNode) {
+            switch (treeNode.type) {
                 case UI4.ID_AND_ATTRIBUTE:
-                    if (!(node.value.attribute in _this.getValue)) {
-                        throw SyntaxError(`Unknown attribute in '${node.value.id}.${node.value.attribute}'`);
+                    if (!(treeNode.value.attribute in _this.getValue)) {
+                        throw SyntaxError(`Unknown attribute in '${treeNode.value.id}.${treeNode.value.attribute}'`);
                     }
-                    node.function = _this.getIdAndAttributeValue.bind(_this);
-                    return node.value.id;  // Return dependency IDs
+                    treeNode.function = _this.getIdAndAttributeValue.bind(_this);
+                    return treeNode.value.id;  // Return dependency IDs
                 case UI4.KEYWORD:
-                    if (node.value !== "gap") {
-                        throw SyntaxError(`Unknown keyword '${node.value}'`);
+                    if (treeNode.value === "gap") {
+                        treeNode.function = (targetElem, treeNode, result) => _this.gap(targetElem);
+                        return;
                     }
-                    node.function = (targetElem, treeNode, result) => _this.gap;
-                    return;
+                    // Rewrite sole attributes to be full references to parent attribute
+                    else if (treeNode.value in _this.setValue) {
+                        treeNode.type = UI4.ID_AND_ATTRIBUTE;
+                        treeNode.value = {id: node.parentElement.id, attribute: treeNode.value}
+                        treeNode.function = _this.getIdAndAttributeValue.bind(_this);
+                        return treeNode.value.id;
+                    }
+                    else {
+                        throw SyntaxError(`Unknown keyword '${treeNode.value}'`);
+                    }
                 case UI4.FUNCTION:
-                    switch (node.value) {
+                    switch (treeNode.value) {
                         case "min":
-                            node.function = Math.min;
+                            treeNode.function = Math.min;
                             return;
                         case "max":
-                            node.function = Math.max;
+                            treeNode.function = Math.max;
                             return;
                         case "share":
                         case "columns":
                         case "rows":
                             return;
                     }
-                    throw SyntaxError(`Unknown function '${node.value}'`);
+                    throw SyntaxError(`Unknown function '${treeNode.value}'`);
             }
         };
         const dependencyIDs = this.walkParseTree(sourceTree, walker);
@@ -921,7 +950,7 @@ class UI4 {
         }
         else if (sourceSpec.attribute === "constant") {
             return {
-                value: sourceSpec.valueFunction(this.gap),
+                value: sourceSpec.valueFunction(this.gap(targetElem.parentElem.id)),
                 type: UI4.attrType[sourceSpec.attribute],
                 contained: true,
             };
@@ -975,18 +1004,19 @@ class UI4 {
     }
 
     gapAdjustment(source, target) {
+        const parentId = target.context.parentElem.id;
         if (source.contained) { // aligned
             if (source.type === UI4.LEADING && target.type === UI4.LEADING) {
-                return this.gap;
+                return this.gap(parentId);
             }
             else if (source.type === UI4.TRAILING && target.type === UI4.TRAILING) {
-                return -this.gap;
+                return -this.gap(parentId);
             }
         } else {  // butting
             if (source.type === UI4.LEADING && target.type === UI4.TRAILING) {
-                return -this.gap;
+                return -this.gap(parentId);
             } else if (source.type === UI4.TRAILING && target.type === UI4.LEADING) {
-                return this.gap;
+                return this.gap(parentId);
             }
         }
 
@@ -1065,6 +1095,7 @@ class UI4 {
 
     grid_layout(element, countX, countY) {
         const count = element.childElementCount;
+        const gap = this.gap(element.id);
         if (!count) return;
 
         if (!countX && !countY) {
@@ -1078,8 +1109,8 @@ class UI4 {
             throw SyntaxError('Check columns/rows value, should be integer larger than 0');
         }
 
-        const dimX = (element.clientWidth - (countX + 1) * this.gap) / countX;
-        const dimY = (element.clientHeight - (countY + 1) * this.gap) / countY;
+        const dimX = (element.clientWidth - (countX + 1) * gap) / countX;
+        const dimY = (element.clientHeight - (countY + 1) * gap) / countY;
 
         // px = self.pack_x
         // exp_pack_x = px[0] + px[1] * (count_x - 1) + px[2]
@@ -1101,9 +1132,9 @@ class UI4 {
         const realDimY = dimY; // if free_count_y == 0 else dim
 
         const children = [...element.children];
-        let y = this.gap; // + (per_free_y if self.top_free else self.gap)
+        let y = gap; // + (per_free_y if self.top_free else self.gap)
         for (let row = 0; row < countY; row++) {
-            let x = this.gap; // + (per_free_x if self.leading_free else self.gap)
+            let x = gap; // + (per_free_x if self.leading_free else self.gap)
             for (let col = 0; col < countX; col++) {
                 const child = children.shift();
                 if (!child) return;
@@ -1112,10 +1143,10 @@ class UI4 {
                 child.style.top = y;
                 child.style.width = realDimX;
                 child.style.height = realDimY;
-                x += realDimX + this.gap; // + (per_free_x if self.center_x_free else self.gap)
+                x += realDimX + gap; // + (per_free_x if self.center_x_free else self.gap)
 
             }
-            y += realDimY + this.gap; // (per_free_y if self.center_y_free else self.gap)
+            y += realDimY + gap; // (per_free_y if self.center_y_free else self.gap)
         }
     }
 }
@@ -1139,7 +1170,7 @@ UI4.Parser = class {
 
         const TOKEN_TYPES = [
             "(?<idAndAttribute>([a-zA-Z]|\\d|_|-)+\\.([a-zA-Z]+))",
-            "(?<keyword>gap)",
+            "(?<keyword>gap|left|right|top|bottom|centerx|centery|width|height|position|size|frame)",
             "(?<function>min|max|share|grid|columns|rows)",
             "(?<comma>,)",
             "(?<operator>[\\+\\-\\*\\/\\^])",
